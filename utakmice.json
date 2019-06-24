@@ -1,0 +1,40 @@
+{
+  "utakmice": [
+    {
+      "id": "43f3c320-968b-11e9-bb44-874c2d8fd59a",
+      "pocetakUtakmice": "2019-06-24T15:00:00.000Z",
+      "krajUtakmice": "2019-06-24T16:30:00.000Z",
+      "prviTim": "Dinamo Zagreb",
+      "drugiTim": "Hajduk Split",
+      "goloviPT": 0,
+      "goloviDT": 0
+    },
+    {
+      "id": "94954870-968c-11e9-8f9a-c1bb782e89d8",
+      "pocetakUtakmice": "2019-06-24T14:30:00.000Z",
+      "krajUtakmice": "2019-06-24T16:00:00.000Z",
+      "prviTim": "NK Dugo Selo",
+      "drugiTim": "NK Žiškovec",
+      "goloviPT": 0,
+      "goloviDT": 0
+    },
+    {
+      "id": "a7d78ce0-968c-11e9-bc8b-d9aa0bfdb50f",
+      "pocetakUtakmice": "2019-06-23T18:00:00.000Z",
+      "krajUtakmice": "2019-06-23T19:30:00.000Z",
+      "prviTim": "Liverpool",
+      "drugiTim": "Manchester United",
+      "goloviPT": 0,
+      "goloviDT": 0
+    },
+    {
+      "id": "59f2bcf0-9693-11e9-bc6c-0359b6e752ab",
+      "pocetakUtakmice": "2019-06-24T13:50:00.000Z",
+      "krajUtakmice": "2019-06-24T15:20:00.000Z",
+      "prviTim": "aasd",
+      "drugiTim": "assdsa",
+      "goloviPT": 0,
+      "goloviDT": 0
+    }
+  ]
+}
