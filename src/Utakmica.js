@@ -4,13 +4,13 @@ class Utakmica extends Component {
 	constructor(props){
 		let sada = new Date()
 		let pocetakUtakmice = new Date(props.utakmica.pocetakUtakmice)
-		let razlika = (sada - pocetakUtakmice) / (60000)
+		let razlika = (sada - pocetakUtakmice) / (60000) //Određuje trenutnu minutu utakmice
 		let minute = Math.trunc(razlika)
 		super()
 		this.state = {
 			prviTim: props.utakmica.prviTim,
 			drugiTim: props.utakmica.drugiTim,
-			pocetakUtakmice: props.utakmica.pocetakUtakmice,
+			pocetakUtakmice: pocetakUtakmice,
 			krajUtakmice: props.utakmica.krajUtakmice,
 			trenutnaMinuta: minute,
 			goloviPT: 0,
@@ -26,18 +26,21 @@ class Utakmica extends Component {
 			 [ime]: prevState[ime] + 1
 		}))
 	}
+	//Dinamički mijenja trenutnu minutu utakmice svaku minutu
 	mijenjajMinute(){
 		setTimeout(() =>
 			this.setState(prevState => 
 			({
 				 trenutnaMinuta: prevState.trenutnaMinuta + 1
 			}))
-		,  60 * 1000)
-
+		,60 * 1000)
 	}
+
 	render() {
+		//Za provjeru stanja
 		let pocetakUtakmice = new Date(this.state.pocetakUtakmice)
 		let krajUtakmice = new Date(this.state.krajUtakmice)
+		//Za određivanje statusa utakmice
 		let uzivo = false
 		let buduce = false
 		let proslo = false
@@ -48,20 +51,18 @@ class Utakmica extends Component {
 		let goloviPT = this.state.goloviPT
 		let goloviDT = this.state.goloviDT
 
-		let sada = new Date().getTime()
-		var minute
-		//Uživo utakmica
-		if(pocetakUtakmice < sada && krajUtakmice > sada){
-			uzivo = true
+		let trenutnoVrijeme = new Date().getTime()
 
-			minute += "'"
+		//Uživo utakmica
+		if(pocetakUtakmice < trenutnoVrijeme && krajUtakmice > trenutnoVrijeme){
+			uzivo = true
 		}
 		//Buduća utakmica
-		if(pocetakUtakmice > new Date().getTime()){
+		if(pocetakUtakmice > trenutnoVrijeme){
 			buduce = true
 		}
 		//Prosla utakmica
-		if(krajUtakmice < new Date().getTime()){
+		if(krajUtakmice < trenutnoVrijeme){
 			proslo = true
 		}
 		this.mijenjajMinute();
@@ -70,7 +71,7 @@ class Utakmica extends Component {
 		  	<div id="imena">
 		  		<b>{this.state.prviTim} </b>
 		  		{uzivo && <button onClick={(e) => this.povecajGolove(e, "goloviPT")}>+</button>}
-		  		 {(uzivo || proslo) && goloviPT} - {(uzivo || proslo) && goloviDT} 
+		  		{(uzivo || proslo) && goloviPT} - {(uzivo || proslo) && goloviDT} 
 		  		{uzivo && <button onClick={(e) => this.povecajGolove(e, "goloviDT")}>+</button>}
 		  		<b> {this.state.drugiTim}</b>
 		  	</div>

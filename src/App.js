@@ -53,10 +53,11 @@ class App extends Component {
   }
   //Učitava utakmice koje su trenutno aktivne
   ucitajUzivo(utakmice) {
-    let uzivo =  [];
+    let uzivo =  []
+    let trenutnoVrijeme = new Date().getTime()
     utakmice.forEach(function(utakmica) {
-      if(new Date(utakmica.pocetakUtakmice) < new Date().getTime() && new Date(utakmica.krajUtakmice) > new Date().getTime()){
-        uzivo.push(utakmica);
+      if(new Date(utakmica.pocetakUtakmice) < trenutnoVrijeme && new Date(utakmica.krajUtakmice) > trenutnoVrijeme){
+        uzivo.push(utakmica)
       }
     });
     this.setState({
@@ -78,10 +79,11 @@ class App extends Component {
         break;
     }
   }
+  //Prikaz komponente za dodavanje nove utakmice
   pokaziDodaj(){
     this.setState({
       pokaziDodaj: true,
-      prikazaneUtakmice: []
+      prikazaneUtakmice: [] //Micanje prikaza utakmica
     })
   }
   render() {
